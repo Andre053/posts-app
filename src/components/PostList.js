@@ -7,10 +7,10 @@ function PostList(props) {
     <>
       <div className="vote">
         <h3>{value.count}</h3>
-        <button key="Upvote" onClick={handleClickIncrement(array)}>
+        <button key="Upvote" onClick={}>
           Upvote
         </button>
-        <button key="Downvote" onClick={handleClickDecrement}>
+        <button key="Downvote" onClick={}>
           Downvote
         </button>
       </div>
@@ -22,13 +22,6 @@ function PostList(props) {
     </>
   ));
   return <ul>{listPosts}</ul>;
-}
-function handleClickIncrement(array) {
-  console.log('Handling increment');
-  array.count += 1;
-}
-function handleClickDecrement(event) {
-  console.log('Handling decrement');
 }
 function mapStateToProps(state) {
   return {

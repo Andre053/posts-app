@@ -42,8 +42,10 @@ function reducer(state = initialState, action) {
           }
         ]
       };
-    case 'VOTE':
-      posts: [...state.posts, { count: ++action.payload }];
+    case 'incrementVote':
+      return [...state, { count: ++action.payload }];
+    case 'decrementVote':
+      return [...state, { count: --action.payload }];
     default:
       return state;
   }

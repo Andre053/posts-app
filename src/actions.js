@@ -6,9 +6,15 @@ export function addPost(post) {
     payload: post
   };
 }
-export function votePost(voteType) {
+export function incrementVote(vote) {
   return {
     type: 'VOTE',
-    payload: voteType
+    payload: vote
+  };
+}
+export function decrementVote(vote) {
+  return {
+    type: 'VOTE',
+    payload: vote
   };
 }
