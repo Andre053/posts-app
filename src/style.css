@@ -1,0 +1,80 @@
+* {
+  font-size: 24px;
+  padding: 0;
+  margin: 0.5rem auto 0.5rem auto;
+  background-color: yellow;
+  max-width: 800px;
+  line-height: 1.5rem;
+  font-family: Courier;
+}
+h1 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+h3 {
+  margin-top: 2.5rem;
+  font-size: 1.35rem;
+}
+h4 {
+  font-size: 1rem;
+  font-style: italic;
+}
+p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+}
+h1 {
+  font-size: 1.5rem;
+}
+li {
+  list-style-type: none;
+  margin: 0;
+}
+form {
+  padding-top: 1rem;
+  border-top: solid;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: 800;
+}
+label > input,
+textarea {
+  display: block;
+  width: 30rem;
+  border: 0.1rem solid;
+  font-size: 1rem;
+}
+textarea {
+  height: 5rem;
+}
+.vote {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 0 0 0;
+}
+.vote > button {
+  margin: 1rem 0 0 0;
+  padding: 0;
+  width: 8rem;
+  border: 0.05rem solid;
+  cursor: pointer;
+}
+ul {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 3rem;
+}
+.vote > h3 {
+  margin-top: 0;
+}
