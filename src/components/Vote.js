@@ -5,9 +5,8 @@ function Vote(props) {
   const [vote, setVote] = useState(0);
 
   function handleChange(event) {
-    setPost();
+    setVote();
   }
-  function incrementVote() {}
 
-  function decrementVote() {}
+  props.votePost(vote);
 }
