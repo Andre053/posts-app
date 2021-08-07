@@ -6,15 +6,16 @@ export function addPost(post) {
     payload: post
   };
 }
-export function incrementVote(vote) {
+/* export function incrementVote(vote) {
+  console.log('increment action called');
   return {
-    type: 'VOTE',
+    type: 'INCREMENT_VOTE',
     payload: vote
   };
 }
 export function decrementVote(vote) {
   return {
-    type: 'VOTE',
+    type: 'DECREMENT_VOTE',
     payload: vote
   };
-}
+} */

@@ -42,10 +42,11 @@ function reducer(state = initialState, action) {
           }
         ]
       };
-    case 'incrementVote':
-      return [...state, { count: ++action.payload }];
-    case 'decrementVote':
-      return [...state, { count: --action.payload }];
+    /* case 'INCREMENT_VOTE':
+      console.log('incrementing vote!');
+      return [...state, { count: action.payload }];
+    case 'DECREMENT_VOTE':
+      return [...state, { count: action.payload }]; */
     default:
       return state;
   }
