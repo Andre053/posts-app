@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { incrementVote, decrementVote } from '../actions';
 
 function PostList(props) {
-  const [id, setId] = useState();
+  const [id, setId] = useState(() => {
+    return;
+  });
 
-  function increment(event) {
-    console.log('increment id ', event.target.value);
-    setId(0); //gets value associated to button
-    console.log('id is ', id);
-    props.incrementVote(id); //calls increment with this id
+  useEffect(() => {
+    console.log(id, ' in useEffect');
+  });
+
+  function handleIncrement(event) {
+    setId(prevstate => ({ ...prevstate, id: event.target.value }));
+    increment();
   }
-  function decrement(event) {
-    console.log('decrement id ', event.target.value);
+  function handleDecrement(event) {
     setId(event.target.value);
-    console.log('id is ', id);
+    decrement();
+  }
+  function increment() {
+    console.log(id, ' in increment');
+    props.incrementVote(id);
+  }
+  function decrement() {
+    console.log(id, ' in decrement');
     props.decrementVote(id);
   }
 
@@ -23,10 +33,10 @@ function PostList(props) {
     <>
       <div className="vote">
         <h3>{value.count}</h3>
-        <button value={value.id} onClick={increment}>
+        <button value={value.id} onClick={handleIncrement}>
           Upvote
         </button>
-        <button value={value.id} onClick={decrement}>
+        <button value={value.id} onClick={handleDecrement}>
           Downvote
         </button>
       </div>

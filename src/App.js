@@ -60,7 +60,7 @@ function reducer(state = initialState, action) {
           if (post.id !== action.payload) {
             return post;
           }
-          return { ...post, count: count + 1 };
+          return { ...post, count: post.count + 1 };
         })
       };
     case 'DECREMENT_VOTE':
@@ -69,7 +69,7 @@ function reducer(state = initialState, action) {
           if (post.id !== action.payload) {
             return post;
           }
-          return { ...post, count: count - 1 };
+          return { ...post, count: post.count - 1 };
         })
       };
     default:
