@@ -52,20 +52,15 @@ function reducer(state = initialState, action) {
         ]
       };
     case 'INCREMENT_VOTE':
-      console.log('incrementing vote of id ', action.payload);
       return {
-        ...state,
         posts: state.posts.map(post => {
           if (post.id !== action.payload) {
-            console.log(typeof action.payload);
-            console.log(post.id, action.payload);
             return post;
           }
           return { ...post, count: post.count + 1 };
         })
       };
     case 'DECREMENT_VOTE':
-      console.log('decrementing vote of id ', action.payload);
       return {
         posts: state.posts.map(post => {
           if (post.id !== action.payload) {
