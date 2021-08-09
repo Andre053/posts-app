@@ -8,18 +8,21 @@ import './style.css';
 const initialState = {
   posts: [
     {
+      id: 0,
       title: 'A Good Post',
       author: 'Andre Unknown',
       content: 'Here is some great smart content.',
       count: 0
     },
     {
+      id: 1,
       title: 'A Fantasic Post',
       author: 'Sophie Unknown',
       content: 'You will not find better content than this!',
       count: 0
     },
     {
+      id: 2,
       title: 'A Long Post',
       author: 'Lorem Ipsum',
       content:
@@ -28,6 +31,11 @@ const initialState = {
     }
   ]
 };
+function nextPostID(posts) {
+  const maxID = posts.reduce((maxID, post) => Math.max(post.id, maxID), -1);
+  //gets the maximum ID in the store
+  return maxID + 1; //returns next id
+}
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'ADD_POST':
@@ -35,6 +43,7 @@ function reducer(state = initialState, action) {
         posts: [
           ...state.posts,
           {
+            id: nextPostID(state.posts),
             title: action.payload.title,
             author: action.payload.author,
             content: action.payload.content,
@@ -42,11 +51,27 @@ function reducer(state = initialState, action) {
           }
         ]
       };
-    /* case 'INCREMENT_VOTE':
+    case 'INCREMENT_VOTE':
       console.log('incrementing vote!');
-      return [...state, { count: action.payload }];
+      console.log(action.payload);
+      return {
+        ...state,
+        posts: state.posts.map(post => {
+          if (post.id !== action.payload) {
+            return post;
+          }
+          return { ...post, count: count + 1 };
+        })
+      };
     case 'DECREMENT_VOTE':
-      return [...state, { count: action.payload }]; */
+      return {
+        posts: state.posts.map(post => {
+          if (post.id !== action.payload) {
+            return post;
+          }
+          return { ...post, count: count - 1 };
+        })
+      };
     default:
       return state;
   }

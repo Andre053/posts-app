@@ -6,16 +6,16 @@ export function addPost(post) {
     payload: post
   };
 }
-/* export function incrementVote(vote) {
+export function incrementVote(id) {
   console.log('increment action called');
   return {
     type: 'INCREMENT_VOTE',
-    payload: vote
+    payload: id
   };
 }
-export function decrementVote(vote) {
+export function decrementVote(id) {
   return {
     type: 'DECREMENT_VOTE',
-    payload: vote
+    payload: id
   };
-} */
+}
