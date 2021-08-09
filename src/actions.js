@@ -7,13 +7,14 @@ export function addPost(post) {
   };
 }
 export function incrementVote(id) {
-  console.log('increment action called');
+  console.log('increment action called, id: ', id);
   return {
     type: 'INCREMENT_VOTE',
     payload: id
   };
 }
 export function decrementVote(id) {
+  console.log('decrement action called, id: ', id);
   return {
     type: 'DECREMENT_VOTE',
     payload: id

@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { incrementVote, decrementVote } from '../actions';
 
 function PostList(props) {
-  const [id, setId] = useState(() => {
+  /* const [id, setId] = useState(() => {
     return;
-  });
-
-  useEffect(() => {
-    console.log(id, ' in useEffect');
-  });
+  }); */
 
   function handleIncrement(event) {
-    setId(prevstate => ({ ...prevstate, id: event.target.value }));
-    increment();
-  }
-  function handleDecrement(event) {
-    setId(event.target.value);
-    decrement();
-  }
-  function increment() {
-    console.log(id, ' in increment');
+    let id = parseInt(event.target.value);
     props.incrementVote(id);
   }
-  function decrement() {
-    console.log(id, ' in decrement');
+  function handleDecrement(event) {
+    let id = parseInt(event.target.value);
     props.decrementVote(id);
   }
 
