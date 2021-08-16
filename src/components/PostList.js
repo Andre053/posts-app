@@ -17,6 +17,11 @@ function PostList(props) {
   }
 
   const array = props.posts;
+  array.sort((a, b) =>
+    a.count < b.count ? 1 : a.count === b.count ? (a.id > b.id ? 1 : -1) : -1
+  );
+  // for a and b in array, if a.count is larger than b.count, it gets priority, else if counts are equal, lower id gets priority
+  // this sorts the list based on votes first, then based on id
   const listPosts = array.map(value => (
     <>
       <div className="vote">
